@@ -1,6 +1,13 @@
 --[[
 		
-مارتن x مؤمن
+	██╗░░░░░██╗░░░██╗███╗░░██╗░█████╗░██████╗░░░░██╗░░░██╗██╗██████╗░
+	██║░░░░░██║░░░██║████╗░██║██╔══██╗██╔══██╗░░░██║░░░██║██║██╔══██╗
+	██║░░░░░██║░░░██║██╔██╗██║███████║██████╔╝░░░╚██╗░██╔╝██║██████╔╝
+	██║░░░░░██║░░░██║██║╚████║██╔══██║██╔══██╗░░░░╚████╔╝░██║██╔═══╝░
+	███████╗╚██████╔╝██║░╚███║██║░░██║██║░░██║██╗░░╚██╔╝░░██║██║░░░░░
+	╚══════╝░╚═════╝░╚═╝░░╚══╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░╚═╝░░░╚═╝╚═╝░░░░░
+
+	Last updated 18/03/24
 ]]
 
 if isfile("menu_plex.font") then
@@ -4845,7 +4852,7 @@ do
 		do 
 			utility.drawings["Tracer"] = utility:drawObject("Line", {})
 			utility.drawings["Aim Assist FOV"] = utility:drawObject("Circle", {Visible = false, Radius = 8, Color = Color3.fromRGB(0,0,0), Filled = false})
-			utility.drawings["Sub"] = utility:drawObject("Text", {Outline = true, Text = "Skidware", Color = Color3.new(1, 1, 1)})
+			utility.drawings["Sub"] = utility:drawObject("Text", {Outline = true, Text = "lunar", Color = Color3.new(1, 1, 1)})
 			utility.drawings["Domain"] = utility:drawObject("Text", {Outline = true, Text = ".vip", Color = Color3.fromRGB(132, 108, 188)})
 			--
 			for i,v in pairs(bodyClone:GetDescendants()) do 
@@ -4883,14 +4890,26 @@ do
 			-- // Chat spam framework
 			do 
 				Messages = {
-					["مؤمن خليفه"] = {
-						"تم الاختراق من مؤمن خليفه يا عرصان",
-						"تم الدعس من مارتن النمراوي",
+					["Scottish"] = {
+						"You Grandma Still Wears Shin Pads To Work 🤣🤣",
+						"Melon Head",
+						"Your Ma Is A Bin Man 🤣🤣",
+						"Taped You Like I Did To Your Ma",
+						"Fore Headed Mong",
+						"Such A Fruit",
+						"YoUr A BoOt",
+						"keep Trying You Jobby",
 					},
-					["مارتن النمراوي"] = {
-						"Owned By مارتن النمراوي",
-
-
+					["Lunar"] = {
+						"Owned By Lunar",
+						"Lunar Lunar Lunar RAHHHHH",
+						"Slammed by Lunar",
+						"YOU GOT SLAMMED BY LUNAR",
+						"SEEMS LIKE YOU NEED LUNAR GG/LUNARVIP",
+						"GG/LUNARVIP GG/LUNARVIP GG/LUNARVIP",
+						"GG/LUNARVIP <-- THIS WILL LET YOU COPE WITH YOUR ISSUES",
+						"WHAT YOU CANT BEAT LUNAR?",
+						"PRO TIP: BUY LUNAR",
 					},
 				}
 				utx = {
@@ -5661,7 +5680,7 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 		-- 
 		local chatSpam = Movement:Section({Name = "Chat Spam", Size = 330, Side = "Left"}) do
 			chatSpam:Toggle({Name = "Enabled", Flag = "Chat Spam"})
-			chatSpam:Dropdown({Name = "Type", Flag = "Chat Spam Type", Options = {"مارتن النمراوي", "مؤمن خليفه"}, Default = "مارتن النمراوي"})
+			chatSpam:Dropdown({Name = "Type", Flag = "Chat Spam Type", Options = {"Lunar", "Scottish"}, Default = "Lunar"})
 			chatSpam:Slider({Name = "Delay", Flag = 'Chat Spam Delay', Suffix = "s", Min = 0.1, Max = 10.0, Default = 5.0, Decimals = 0.1})
 			chatSpam:Toggle({Name = "Emojis", Flag = "Emojis"})
 			chatSpam:Toggle({Name = "Symbols", Flag = "Symbol"})
@@ -5769,16 +5788,16 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 		Cfgs:Textbox({Flag = "SettingsConfigurationName", Placeholder = "Config name"})
 		--
 		local CurrentList = {};
-		if not isfolder("Skidware") then 
-			makefolder("Skidware")
+		if not isfolder("Lunar") then 
+			makefolder("Lunar")
 		end 
-		if not isfolder("Skidware/Configs") then 
-			makefolder("Skidware/Configs")
+		if not isfolder("Lunar/Configs") then 
+			makefolder("Lunar/Configs")
 		end 
 		local function UpdateConfigList()
 			local List = {};
-			for idx, file in ipairs(listfiles("Skidware/Configs")) do
-				local FileName = file:gsub("Skidware/Configs\\", ""):gsub(".cfg", "")
+			for idx, file in ipairs(listfiles("Lunar/Configs")) do
+				local FileName = file:gsub("Lunar/Configs\\", ""):gsub(".cfg", "")
 				List[#List + 1] = FileName;
 			end;
 
@@ -5800,28 +5819,28 @@ local Window = Library:Window({Size = UDim2.new(0,580,0,600)}) do
 		--
 		Cfgs:Button({Name = "Create", Callback = function()
 			local ConfigName = flags.SettingsConfigurationName;
-			if ConfigName == "" or isfile("Skidware/Configs/" .. ConfigName .. ".cfg") then
+			if ConfigName == "" or isfile("Lunar/Configs/" .. ConfigName .. ".cfg") then
 				return;
 			end;
-			writefile("Skidware/Configs/" .. ConfigName .. ".cfg", Library:GetConfig());
+			writefile("Lunar/Configs/" .. ConfigName .. ".cfg", Library:GetConfig());
 			UpdateConfigList();
 		end})
 		Cfgs:Button({Name = "Save", Callback = function()
 			local SelectedConfig = flags.SettingConfigurationList;
 			if SelectedConfig then
-				writefile("Skidware/Configs/" .. SelectedConfig .. ".cfg", Library:GetConfig())
+				writefile("Lunar/Configs/" .. SelectedConfig .. ".cfg", Library:GetConfig())
 			end;
 		end})
 		Cfgs:Button({Name = "Load", Callback = function()
 			local SelectedConfig = flags.SettingConfigurationList;
 			if SelectedConfig then
-				Library:LoadConfig(readfile("Skidware/Configs/" .. SelectedConfig .. ".cfg"))
+				Library:LoadConfig(readfile("Lunar/Configs/" .. SelectedConfig .. ".cfg"))
 			end
 		end})
 		Cfgs:Button({Name = "Delete", Callback = function()
 			local SelectedConfig = flags.SettingConfigurationList;
 			if SelectedConfig then
-				delfile("Skidware/Configs/" .. SelectedConfig .. ".cfg")
+				delfile("Lunar/Configs/" .. SelectedConfig .. ".cfg")
 			end
 			UpdateConfigList();
 		end})
@@ -6192,7 +6211,7 @@ do
 													end
 													-- 
 													if flags["Hit Notify"] then 
-														local Text = string.format("znooj hit %s in the %s!", Players[InstanceHit.Name].Name, HitInstance.Name)
+														local Text = string.format("You Hit %s in the %s!", Players[InstanceHit.Name].Name, HitInstance.Name)
 														Library:Notification(Text, 3, Library.Accent, flags["Notification Position"])
 													end 
 													-- 
@@ -6376,7 +6395,7 @@ do
 	end 
 end 
 
-Library:Notification("Loaded Skidware.vip in " .. Floor((tick() - loadingTime) * 1000)  .."ms", 3, Library.Accent, flags["Notification Position"])
+Library:Notification("Loaded lunar.vip in " .. Floor((tick() - loadingTime) * 1000)  .."ms", 3, Library.Accent, flags["Notification Position"])
 
 
 
